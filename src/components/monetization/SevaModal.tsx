@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Heart, X, ExternalLink } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const AMOUNTS = [
   { label: '₹51', value: 51 },
@@ -13,7 +14,7 @@ const AMOUNTS = [
 
 const UPI_ID = 'rudrshivansh@upi';
 
-export default function SevaModal() {
+export default function SevaModal({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(101);
 
@@ -24,7 +25,10 @@ export default function SevaModal() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 transition-colors text-sm font-medium border border-rose-900/30"
+        className={cn(
+          "flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 transition-colors text-sm font-medium border border-rose-900/30 w-full",
+          className
+        )}
       >
         <Heart className="w-4 h-4" /> Dharmik Seva
       </button>

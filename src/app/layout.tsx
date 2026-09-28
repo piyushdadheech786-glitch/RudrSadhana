@@ -1,65 +1,78 @@
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "RudrSadhana | Digital Japa & Shiva Sadhana",
+  title: {
+    default: 'RudrSadhana — वैदिक पंचांग, चौघड़िया, शिव स्तोत्र व डिजिटल साधना',
+    template: '%s | RudrSadhana',
+  },
   description:
-    "Your sacred digital companion for daily Japa, Shiva worship, Muhurat tracking, and spiritual progress. By Rudrshivansh.",
+    'दैनिक पंचांग, आज का चौघड़िया, ब्रह्म व अभिजित मुहूर्त, राहु काल, शिव तांडव स्तोत्र, महामृत्युंजय मंत्र, और 108 डिजिटल जप माला साधना। Devotionally powered by Rudrshivansh.',
   keywords: [
-    "Japa Counter",
-    "Shiva Sadhana",
-    "Om Namah Shivaya",
-    "Mahamrityunjaya",
-    "Digital Mala",
-    "Hindu Devotional",
-    "Rudrshivansh",
+    'दैनिक पंचांग',
+    'आज का चौघड़िया',
+    'राहु काल आज',
+    'शिव तांडव स्तोत्र',
+    'महामृत्युंजय मंत्र',
+    'रुद्राष्टकम्',
+    'डिजिटल जप माला',
+    'Vedic Panchang 2026',
+    'Choghadiya Today',
+    'Shiva Sadhana',
+    'Rudrshivansh',
   ],
-  manifest: "/manifest.json",
-  icons: {
-    icon: "/favicon.ico",
+  authors: [{ name: 'Rudrshivansh' }],
+  creator: 'Rudrshivansh',
+  publisher: 'RudrSadhana',
+  metadataBase: new URL('https://rudrsadhana.vercel.app'),
+  alternates: {
+    canonical: '/',
   },
   openGraph: {
-    title: "RudrSadhana \u2014 Sacred Digital Japa",
-    description: "Track your daily Japa, maintain Sankalp streaks, and worship with devotion.",
-    type: "website",
+    title: 'RudrSadhana — वैदिक पंचांग व साधना महासागर',
+    description:
+      'सटीक वैदिक पंचांग, दिन-रात का चौघड़िया, दुर्लभ स्तोत्र संग्रह और डिजिटल 108 जप माला।',
+    url: 'https://rudrsadhana.vercel.app',
+    siteName: 'RudrSadhana',
+    locale: 'hi_IN',
+    type: 'website',
+  },
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.ico',
   },
 };
 
 export const viewport: Viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: "#0a0a0c",
+  themeColor: '#0a0a0c',
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="hi"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="hi" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0a0a0c]">
-        {/* Mobile-first container */}
-        <div className="max-w-md mx-auto min-h-screen w-full border-x border-neutral-800/50 shadow-2xl relative pb-28 text-neutral-100 font-sans">
-          {children}
-        </div>
+      <body className="min-h-full flex flex-col bg-[#0a0a0c] text-neutral-100 selection:bg-amber-500/30 selection:text-amber-200">
+        <Navbar />
+        <div className="flex-1 w-full">{children}</div>
+        <Footer />
       </body>
     </html>
   );

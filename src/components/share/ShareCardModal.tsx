@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import { Share2, Copy, Check, X } from 'lucide-react';
 import { getSankalpData, getJapaData } from '@/lib/storage';
+import { cn } from '@/lib/utils';
 
-export default function ShareCardModal() {
+export default function ShareCardModal({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -44,7 +45,10 @@ export default function ShareCardModal() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-medium"
+        className={cn(
+          "flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-medium w-full",
+          className
+        )}
       >
         <Share2 className="w-4 h-4" /> Share Progress
       </button>
