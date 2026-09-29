@@ -7,6 +7,7 @@ import { getFullPanchang } from '@/lib/panchang-engine';
 import { STOTRAS_DATA } from '@/lib/stotras-data';
 import { FESTIVALS_DATA } from '@/lib/festivals-data';
 import PanchangHeroCard from '@/components/panchang/PanchangHeroCard';
+import DrikPanchangCard from '@/components/panchang/DrikPanchangCard';
 import ChoghadiyaTable from '@/components/panchang/ChoghadiyaTable';
 import MuhuratGrid from '@/components/panchang/MuhuratGrid';
 
@@ -86,6 +87,11 @@ export default function HomePage() {
 
       {/* Main Content Hub */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+        {/* Signature Drik Panchang Card: Diyas, Moon Phase, City Selector & Timeline */}
+        <section>
+          <DrikPanchangCard />
+        </section>
+
         {/* 2. Today's Core Vedic Panchang Card */}
         <section>
           <PanchangHeroCard />

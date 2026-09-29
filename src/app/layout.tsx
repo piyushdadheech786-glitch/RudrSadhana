@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/layout/Navbar';
+import DrikHeader from '@/components/layout/DrikHeader';
 import Footer from '@/components/layout/Footer';
 
 const geistSans = Geist({
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="min-h-full flex flex-col bg-[#0a0a0c] text-neutral-100 selection:bg-amber-500/30 selection:text-amber-200">
-        <Navbar />
+        <DrikHeader />
         <div className="flex-1 w-full">{children}</div>
         <Footer />
       </body>

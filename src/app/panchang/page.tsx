@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { Calendar, ChevronLeft, ChevronRight, Clock, Compass, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { getFullPanchang } from '@/lib/panchang-engine';
 import PanchangHeroCard from '@/components/panchang/PanchangHeroCard';
+import DrikPanchangCard from '@/components/panchang/DrikPanchangCard';
 import DetailedPanchangTable from '@/components/panchang/DetailedPanchangTable';
 import ChoghadiyaTable from '@/components/panchang/ChoghadiyaTable';
 import MuhuratGrid from '@/components/panchang/MuhuratGrid';
@@ -71,7 +72,10 @@ export default function PanchangPage() {
           </div>
         </div>
 
-        {/* 1. Panchang Hero Card */}
+        {/* 1. Drik Panchang Signature Card: Moon Phase, Diyas, City & Timeline */}
+        <DrikPanchangCard />
+
+        {/* 2. Panchang Summary Card */}
         <PanchangHeroCard />
 
         {/* 2. Detailed 5 Limbs Table */}
